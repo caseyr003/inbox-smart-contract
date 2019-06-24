@@ -4,16 +4,15 @@ const Web3 = require('web3');
 
 const web3 = new Web3(ganache.provider());
 
+let accounts;
+
 beforeEach(async () => {
     //list all accounts
     // web3.eth.getAccounts()
     //     .then(fetchedAccounts => {
     //         console.log(fetchedAccounts);
     //     });
-    web3.eth.getAccounts()
-    .then(fetchedAccounts => {
-        console.log(fetchedAccounts);
-    });
+    accounts = await web3.eth.getAccounts();
 
     //use account to deploy contract
 
@@ -21,6 +20,6 @@ beforeEach(async () => {
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-
+        console.log(accounts);
     });
 });
